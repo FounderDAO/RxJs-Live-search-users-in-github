@@ -10,7 +10,8 @@ import {
         filter} from 'rxjs/operators'
 import {ajax} from 'rxjs/ajax'
 
-const url = "https://api.github.com/search/users?q=";
+// const url = "https://api.github.com/search/users?q=";
+const url = "https://github.com/solana-labs/stake-o-matic/wiki/Validator-"
 
 const search = document.getElementById('search');
 const result = document.getElementById('result');
@@ -36,33 +37,24 @@ stream$.subscribe(users => {
 console.log("users", users)
 const count = `<h4 class="center"> Results: ${users.length}.</h4>`;
 resultCount.innerHTML = count;
-//   const html = `
-//   <div class="card">
-//     <div class="card-image">
-//       <img src="${user.avatar_url}" />
-//       <span class="card-title" style="color: black"> ${user.login}</span>
-//     </div>
-//     <div class="card-action">
-//       <a href="${user.html_url}" class="waves-effect waves-light btn" target="_blank">Open account detail</a>
-//     </div>
-// </div>`
 users.map(user => {
-  const html =
-    `
-    <div class="col s12 m3">
-      <div class="card">
-        <div class="card-image">
-          <img src="${user.avatar_url}">
-          <span class="card-title">${user.login}</span>
-            <a class="btn-floating halfway-fab waves-effect waves-light red" 
-                href="${user.html_url}" target="_blank">
-            <i class="large material-icons">add</i></a>
-          </div>
-          <div class="card-content">
-            <p>${user.login}</p>
-          </div>
-        </div>
-      </div>`
+  console.log(user)
+  // const html =
+  //   `
+  //   <div class="col s12 m3">
+  //     <div class="card">
+  //       <div class="card-image">
+  //         <img src="${user.avatar_url}">
+  //         <span class="card-title">${user.login}</span>
+  //           <a class="btn-floating halfway-fab waves-effect waves-light red" 
+  //               href="${user.html_url}" target="_blank">
+  //           <i class="large material-icons">add</i></a>
+  //         </div>
+  //         <div class="card-content">
+  //           <p>${user.login}</p>
+  //         </div>
+  //       </div>
+  //     </div>`
     result.insertAdjacentHTML('beforeend', html)
 })
   
